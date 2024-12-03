@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YSPEI Technologies</title>
+  <style>
+    /* Reset and Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #f5f5f5;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(90deg, #282828, #1c1c1c);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #ff6b6b;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero p {
+      font-size: 1.5em;
+      margin-top: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: #ff6b6b;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: background 0.3s ease;
+    }
+
+    .cta:hover {
+      background: #ff3c3c;
+    }
+
+    /* Image Thread */
+    .image-thread {
+      position: fixed;
+      top: 0;
+      left: 10%;
+      width: 100px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      animation: moveDown 10s linear infinite;
+      z-index: -1;
+    }
+
+    .image-thread img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .image-thread:nth-child(2) {
+      left: 80%;
+      animation: moveUp 12s linear infinite;
+    }
+
+    @keyframes moveDown {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(100%);
+      }
+    }
+
+    @keyframes moveUp {
+      from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(-100%);
+      }
+    }
+
+    /* Services Section */
+    .services {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .service-card {
+      display: inline-block;
+      margin: 15px;
+      padding: 20px;
+      background: #1e1e1e;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .contact button {
+      padding: 10px 20px;
+      background: #ff6b6b;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact button:hover {
+      background: #ff3c3c;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #181818;
+      color: #ccc;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    /* Water Drop Animation */
+    .water-drops {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .circle {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      animation: ripple 6s infinite ease-out;
+    }
+
+    .circle:nth-child(1) {
+      top: 20%;
+      left: 40%;
+      animation-delay: 0s;
+    }
+
+    .circle:nth-child(2) {
+      top: 50%;
+      left: 60%;
+      animation-delay: 2s;
+    }
+
+    .circle:nth-child(3) {
+      top: 80%;
+      left: 30%;
+      animation-delay: 4s;
+    }
+
+    @keyframes ripple {
+      0% {
+        width: 50px;
+        height: 50px;
+        opacity: 1;
+      }
+      100% {
+        width: 400px;
+        height: 400px;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    /* Product Section Styling */
+.product-section {
+  text-align: center;
+  margin: 50px 20px;
+  padding: 50px;
+  border-radius: 15px;
+  color: #f5f5f5;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+}
+
+.product-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.product-section p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  animation: fadeIn 3s ease-in-out;
+}
+
+/* Product Image Animation */
+.product-image {
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 15px;
+  animation: pulse 3s infinite, rotateImage 5s linear infinite;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-image:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Rotation Animation */
+@keyframes rotateImage {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* "Coming Soon" Badge */
+.coming-soon-badge {
+  display: inline-block;
+  background: #ff6b6b;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 50px;
+  position: relative;
+  animation: slideIn 1s ease-in-out;
+  margin-top: 20px;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* News Ticker Container */
+.trusted-companies {
+  width: 100%;
+  overflow: hidden; /* Hides the overflow */
+  background-color: #1c1c1c;
+  padding: 10px 0;
+  text-align: center;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Scrolling Text */
+.trusted-companies p {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollText 15s linear infinite;
+}
+
+/* Keyframe for Scrolling Effect */
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%); /* Start off-screen to the right */
+  }
+  100% {
+    transform: translateX(-100%); /* Move completely off-screen to the left */
+  }
+}
+ 
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">YSPEI Technologies</div>
+    <nav class="navbar">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="#explore">Explore</a>
+    </nav>
+  </header>
+
+  <!-- Image Threads -->
+  <div class="image-thread">
+    <img src="dashboard.PNG" alt="Thread Image 1">
+    <img src="edit profile page.PNG" alt="Thread Image 2">
+    <img src="ilawdun.PNG" alt="Thread Image 3">
+  </div>
+
+  <div class="image-thread">
+    <img src="dashboard.PNG" alt="Thread Image 1"><hr>
+    <img src="edit profile page.PNG" alt="Thread Image 2"><hr>
+    <img src="ilawdun.PNG" alt="Thread Image 3"><hr>
+    <img src="marketplace.PNG" alt="Thread Image 4"><hr>
+    <img src="uniser.PNG" alt="Thread Image 5"><hr>
+    <img src="uniserl.PNG" alt="Thread Image 6"><hr>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1>Welcome to YSPEI Technologies</h1>
+    <p>Innovating the future with cutting-edge technology solutions.</p>
+    <a href="#services" class="cta">Explore Services</a>
+  </section>
+
+  <section class="trusted-companies">
+    <p>We are trusted by companies like yours. We help businesses achieve digital excellence.</p>
+  </section>
+  
+
+  <section class="product-section">
+    <h2>Our Upcoming Product</h2>
+    <p>Stay tuned! We're working on something amazing just for you.</p>
+    <img src="logo.png" alt="Coming Soon Product" class="product-image">
+    <div class="coming-soon-badge">Coming Soon</div>
+  </section>
+  
+  
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="service-card">
+      <h3>Web Development</h3>
+      <p>Custom & Responsive websites designed to fit your needs.</p><br>
+      <p>Contact us Today</p>
+    </div>
+    <div class="service-card">
+      <h3>Mobile Applications</h3>
+      <p>Innovative mobile solutions for Android and iOS.</p><br>
+      <p>Contact us Today</p>
+    </div>
+    <div class="service-card">
+      <h3>Video Creation and Editing</h3>
+      <p>Scale up your business with catch marketing videos and event videos.</p><br>
+      <p>Contact us Today</p>
+    </div>
+  </section>
+
+  <!-- Water Drop Background -->
+  <div class="water-drops">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/xzzbobbq" method="POST"> 
+        <label for="name">Your Name</label>
+        <input type="text" name="name" id="name" required>
+        
+        <label for="email">Your Email</label>
+        <input type="email" name="email" id="email" required>
+        
+        <label for="message">Your Message</label>
+        <textarea name="message" id="message" required></textarea>
+        
+        <button type="submit">Send Message</button>
+      </form>
+      
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 YSPEI Technologies. All rights reserved.</p>
+  </footer>
+</body>
+</html>
